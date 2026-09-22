@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Deliveries - TailorHub</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f6fa;
+            color: #222;
+        }
+
+        nav {
+            background: #222;
+            padding: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f1f1;
+        }
+
+        .status {
+            padding: 6px 10px;
+            border-radius: 5px;
+            background: #eee;
+        }
+
+        .empty {
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <a href="/">✂️ TailorHub</a>
+
+    <a href="/customers">👥 Customers</a>
+
+    <a href="/measurements">📏 Measurements</a>
+
+    <a href="/orders">📦 Orders</a>
+
+    <a href="/payments">💳 Payments</a>
+
+    <a href="/deliveries">📅 Deliveries</a>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>📅 Deliveries</h1>
+
+    <p>
+        Track upcoming and completed customer deliveries.
+    </p>
+
+
+    <div class="card">
+
+        <h2>Delivery Schedule</h2>
+
+        {% if deliveries %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Garment</th>
+                    <th>Order Date</th>
+                    <th>Delivery Date</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for delivery in deliveries %}
+
+                <tr>
+
+                    <td>
+                        #{{ delivery[0] }}
+                    </td>
+
+                    <td>
+                        {{ delivery[1] }}
+                    </td>
+
+                    <td>
+                        {{ delivery[2] }}
+                    </td>
+
+                    <td>
+                        {{ delivery[3] }}
+                    </td>
+
+                    <td>
+                        {{ delivery[4] }}
+                    </td>
+
+                    <td>
+                        <span class="status">
+                            {{ delivery[5] }}
+                        </span>
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <p class="empty">
+            No deliveries available yet.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

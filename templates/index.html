@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Tailor Management System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+
+    <a href="/">✂️ TailorHub</a>
+
+    <a href="/customers">👥 Customers</a>
+
+    <a href="/measurements">📏 Measurements</a>
+
+    <a href="/orders">📦 Orders</a>
+
+    <a href="/payments">💳 Payments</a>
+
+    <a href="/deliveries">📅 Deliveries</a>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>Tailor Management System</h1>
+
+    <p>
+        Manage customers, measurements, orders,
+        payments and deliveries in one place.
+    </p>
+
+
+    <!-- DASHBOARD CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Total Customers</h3>
+
+            <div class="number">
+                {{ customer_count }}
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Total Orders</h3>
+
+            <div class="number">
+                {{ order_count }}
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Pending Deliveries</h3>
+
+            <div class="number">
+                0
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Total Revenue</h3>
+
+            <div class="number">
+                ₹0
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="section">
+
+        <h2>Quick Actions</h2>
+
+        <p>
+            Quickly manage your tailoring business.
+        </p>
+
+        <div class="actions">
+
+            <a href="/add-customer" class="btn">
+                + Add Customer
+            </a>
+
+            <a href="/measurements" class="btn">
+                📏 Add Measurements
+            </a>
+
+            <a href="/orders" class="btn">
+                📦 New Order
+            </a>
+
+            <a href="/payments" class="btn">
+                💳 Record Payment
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODULES -->
+
+    <div class="section">
+
+        <h2>Management Modules</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Module</th>
+                    <th>Purpose</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>👥 Customers</td>
+
+                    <td>
+                        Add and manage customer information.
+                    </td>
+
+                    <td>
+                        <a href="/customers">Open</a>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>📏 Measurements</td>
+
+                    <td>
+                        Store clothing measurements.
+                    </td>
+
+                    <td>
+                        <a href="/measurements">Open</a>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>📦 Orders</td>
+
+                    <td>
+                        Create and track tailoring orders.
+                    </td>
+
+                    <td>
+                        <a href="/orders">Open</a>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>💳 Payments</td>
+
+                    <td>
+                        Record customer payments.
+                    </td>
+
+                    <td>
+                        <a href="/payments">Open</a>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>📅 Deliveries</td>
+
+                    <td>
+                        Track delivery dates and order status.
+                    </td>
+
+                    <td>
+                        <a href="/deliveries">Open</a>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- RECENT ORDERS -->
+
+    <div class="section">
+
+        <h2>Recent Orders</h2>
+
+        <p>
+            View and manage all your tailoring orders.
+        </p>
+
+        <a href="/orders" class="btn">
+            View Orders
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

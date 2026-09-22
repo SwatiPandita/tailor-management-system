@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Customers - TailorHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            ✂️ TailorHub
+        </div>
+
+        <a href="/" class="nav-item">📊 Dashboard</a>
+
+        <a href="/customers"
+           class="nav-item">
+            👥 Customers
+        </a>
+
+        <a href="#" class="nav-item">
+            📏 Measurements
+        </a>
+
+        <a href="#" class="nav-item">
+            🧵 Orders
+        </a>
+
+        <a href="#" class="nav-item">
+            💳 Payments
+        </a>
+
+        <a href="#" class="nav-item">
+            📅 Deliveries
+        </a>
+
+    </aside>
+
+
+    <main class="main">
+
+        <div class="header">
+
+            <h1>Customers</h1>
+
+            <p>
+                Manage your tailoring customers.
+            </p>
+
+        </div>
+
+
+        <div class="section">
+
+            <a href="/add-customer"
+               class="btn">
+                + Add Customer
+            </a>
+
+        </div>
+
+
+        <div class="section">
+
+            <h2>Customer List</h2>
+
+            {% if customers %}
+
+            <table style="width:100%;
+                          border-collapse:collapse;
+                          margin-top:20px;">
+
+                <thead>
+
+                    <tr style="border-bottom:1px solid #ddd;">
+
+                        <th style="padding:12px;
+                                   text-align:left;">
+                            ID
+                        </th>
+
+                        <th style="padding:12px;
+                                   text-align:left;">
+                            Name
+                        </th>
+
+                        <th style="padding:12px;
+                                   text-align:left;">
+                            Phone
+                        </th>
+
+                        <th style="padding:12px;
+                                   text-align:left;">
+                            Email
+                        </th>
+
+                        <th style="padding:12px;
+                                   text-align:left;">
+                            Address
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for customer in customers %}
+
+                    <tr style="border-bottom:1px solid #eee;">
+
+                        <td style="padding:12px;">
+                            {{ customer[0] }}
+                        </td>
+
+                        <td style="padding:12px;">
+                            {{ customer[1] }}
+                        </td>
+
+                        <td style="padding:12px;">
+                            {{ customer[2] }}
+                        </td>
+
+                        <td style="padding:12px;">
+                            {{ customer[3] }}
+                        </td>
+
+                        <td style="padding:12px;">
+                            {{ customer[4] }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            {% else %}
+
+            <p style="margin-top:20px;">
+                No customers added yet.
+            </p>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

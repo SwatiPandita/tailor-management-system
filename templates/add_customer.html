@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Customer - TailorHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                ✂️ TailorHub
+            </div>
+
+            <a href="/" class="nav-item">
+                📊 Dashboard
+            </a>
+
+            <a href="/customers" class="nav-item">
+                👥 Customers
+            </a>
+
+            <a href="#" class="nav-item">
+                📏 Measurements
+            </a>
+
+            <a href="#" class="nav-item">
+                🧵 Orders
+            </a>
+
+            <a href="#" class="nav-item">
+                💳 Payments
+            </a>
+
+            <a href="#" class="nav-item">
+                📅 Deliveries
+            </a>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main">
+
+            <div class="header">
+
+                <h1>Add New Customer</h1>
+
+                <p>
+                    Add customer information to your tailoring database.
+                </p>
+
+            </div>
+
+
+            <div class="section">
+
+                <h2>Customer Details</h2>
+
+                <form method="POST">
+
+                    <label>Customer Name</label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter customer name"
+                        required
+                        style="width: 100%;
+                               padding: 12px;
+                               margin: 8px 0 18px;
+                               border: 1px solid #d1d5db;
+                               border-radius: 7px;"
+                    >
+
+
+                    <label>Phone Number</label>
+
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Enter phone number"
+                        required
+                        style="width: 100%;
+                               padding: 12px;
+                               margin: 8px 0 18px;
+                               border: 1px solid #d1d5db;
+                               border-radius: 7px;"
+                    >
+
+
+                    <label>Email Address</label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter email address"
+                        style="width: 100%;
+                               padding: 12px;
+                               margin: 8px 0 18px;
+                               border: 1px solid #d1d5db;
+                               border-radius: 7px;"
+                    >
+
+
+                    <label>Address</label>
+
+                    <textarea
+                        name="address"
+                        placeholder="Enter customer address"
+                        rows="4"
+                        style="width: 100%;
+                               padding: 12px;
+                               margin: 8px 0 18px;
+                               border: 1px solid #d1d5db;
+                               border-radius: 7px;
+                               resize: vertical;"
+                    ></textarea>
+
+
+                    <button
+                        type="submit"
+                        class="btn">
+                        Save Customer
+                    </button>
+
+                    <a
+                        href="/customers"
+                        class="btn">
+                        View Customers
+                    </a>
+
+                </form>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

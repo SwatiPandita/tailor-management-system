@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Orders - TailorHub</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f6fa;
+            color: #222;
+        }
+
+        nav {
+            background: #222;
+            padding: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            background: #222;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f1f1;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<nav>
+
+    <a href="/">✂️ TailorHub</a>
+
+    <a href="/customers">👥 Customers</a>
+
+    <a href="/measurements">📏 Measurements</a>
+
+    <a href="/orders">📦 Orders</a>
+
+    <a href="/payments">💳 Payments</a>
+
+    <a href="/deliveries">📅 Deliveries</a>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>📦 Orders</h1>
+
+    <p>
+        Create and manage tailoring orders.
+    </p>
+
+
+    <!-- ADD ORDER -->
+
+    <div class="card">
+
+        <h2>Create New Order</h2>
+
+        <form method="POST"
+              action="/orders">
+
+            <div class="form-grid">
+
+
+                <div>
+
+                    <label>
+                        Customer Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="customer_name"
+                        placeholder="Enter customer name"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Garment Type
+                    </label>
+
+                    <select
+                        name="garment"
+                        required>
+
+                        <option value="">
+                            Select garment
+                        </option>
+
+                        <option value="Shirt">
+                            Shirt
+                        </option>
+
+                        <option value="Pant">
+                            Pant
+                        </option>
+
+                        <option value="Kurta">
+                            Kurta
+                        </option>
+
+                        <option value="Blouse">
+                            Blouse
+                        </option>
+
+                        <option value="Suit">
+                            Suit
+                        </option>
+
+                        <option value="Dress">
+                            Dress
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Order Date
+                    </label>
+
+                    <input
+                        type="date"
+                        name="order_date"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Delivery Date
+                    </label>
+
+                    <input
+                        type="date"
+                        name="delivery_date"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Total Price (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        name="price"
+                        placeholder="Enter total price"
+                        min="0"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Advance Payment (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        name="advance"
+                        placeholder="Enter advance"
+                        min="0"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Order Status
+                    </label>
+
+                    <select
+                        name="status"
+                        required>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="Stitching">
+                            Stitching
+                        </option>
+
+                        <option value="Ready">
+                            Ready
+                        </option>
+
+                        <option value="Delivered">
+                            Delivered
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+                Save Order
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- SAVED ORDERS -->
+
+    <div class="card">
+
+        <h2>All Orders</h2>
+
+
+        {% if orders %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Customer</th>
+
+                    <th>Garment</th>
+
+                    <th>Order Date</th>
+
+                    <th>Delivery Date</th>
+
+                    <th>Price</th>
+
+                    <th>Advance</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for order in orders %}
+
+                <tr>
+
+                    <td>
+                        {{ order[1] }}
+                    </td>
+
+                    <td>
+                        {{ order[2] }}
+                    </td>
+
+                    <td>
+                        {{ order[3] }}
+                    </td>
+
+                    <td>
+                        {{ order[4] }}
+                    </td>
+
+                    <td>
+                        ₹{{ order[5] }}
+                    </td>
+
+                    <td>
+                        ₹{{ order[6] }}
+                    </td>
+
+                    <td>
+                        {{ order[7] }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <p>
+            No orders have been added yet.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
