@@ -1,33 +1,34 @@
-# Tailor Management System
+# ✂️ Tailor Management System
 
-A web-based Tailor Management System built using Flask, Python, SQLite, HTML and CSS.
+A web-based management system designed to help tailoring businesses manage customers, clothing measurements, orders, payments, and deliveries in one place.
 
-## Features
+## 🚀 Features
 
-- Customer management
-- Customer contact and address details
-- Clothing measurements management
-- Order management
-- Payment tracking
-- Delivery management
-- SQLite database
-- Responsive and user-friendly interface
+- 👥 Customer management
+- 📏 Clothing measurement management
+- 📦 Order creation and tracking
+- 💳 Payment recording
+- 📅 Delivery tracking
+- 🗄️ SQLite database
+- 🎨 Clean and responsive user interface
+- 🔗 Flask-based backend
 
-## Technologies Used
+## 🛠️ Technologies Used
 
-- Python
-- Flask
-- SQLite
-- HTML5
-- CSS3
+- **Python**
+- **Flask**
+- **SQLite**
+- **HTML5**
+- **CSS3**
 
-## Project Structure
+## 📂 Project Structure
 
 ```text
 Tailor-Management-System/
 │
 ├── app.py
-├── tailor.db
+├── requirements.txt
+├── .gitignore
 │
 ├── static/
 │   └── style.css
